@@ -1,14 +1,9 @@
 #!/usr/bin/env python3
-from download import *
-from convertion import *
 import argparse
-import subprocess, sys
+import subprocess
 
-
-def get_exe_dir():
-    if getattr(sys, 'frozen', False):
-        return os.path.dirname(sys.executable)
-    return os.path.dirname(os.path.abspath(__file__))
+from convertion import *
+from download import *
 
 
 def main():

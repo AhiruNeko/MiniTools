@@ -8,6 +8,13 @@ from selenium import webdriver
 from PIL import Image
 import io
 import time
+import sys
+
+
+def get_exe_dir():
+    if getattr(sys, 'frozen', False):
+        return os.path.dirname(sys.executable)
+    return os.path.dirname(os.path.abspath(__file__))
 
 
 def download(url):
@@ -31,15 +38,7 @@ def download(url):
     driver.quit()
     soup = BeautifulSoup(html, "html.parser")
 
-    server_link = soup.find("a", class_="change current")
-    if not server_link:
-        print("Failed to find data-server link")
-
-    data_server = server_link.get("data-server")
-    if not data_server:
-        print("Failed to extract data-server")
-
-    download_path = "./downloads"
+    download_path = get_exe_dir() + "/downloads/"
 
     if not os.path.exists(download_path):
         os.makedirs(download_path)
@@ -75,44 +74,55 @@ def download(url):
                 img_name = os.path.splitext(img_name)[0] + ".jpg"
                 image = image.convert("RGB")
 
-            image.save(f"downloads/{img_name}")
+            image.save(download_path + img_name)
             download_count += 1
             print(f"Downloaded and converted: {img_name}")
         except Exception as e:
             print(f"Failed to download or convert {img_url}: {e}")
 
-    canvas_tags = soup.find_all("canvas")
-    for i, canvas in enumerate(canvas_tags):
-        try:
-            data_srcset = canvas.get("data-srcset")
-            if not data_srcset:
-                print(f"Skipped <canvas> {i}: No data-srcset attribute")
-                continue
+    try:
+        server_link = soup.find("a", class_="change current")
+        if not server_link:
+            print("Failed to find data-server link")
 
-            canvas_url = urljoin(data_server, data_srcset)
+        data_server = server_link.get("data-server")
+        if not data_server:
+            print("Failed to extract data-server")
 
-            response = requests.head(canvas_url, headers=headers)
-            if response.status_code != 200:
-                print(f"Resource not found: {canvas_url}")
-                continue
+        canvas_tags = soup.find_all("canvas")
+        for i, canvas in enumerate(canvas_tags):
+            try:
+                data_srcset = canvas.get("data-srcset")
+                if not data_srcset:
+                    print(f"Skipped <canvas> {i}: No data-srcset attribute")
+                    continue
 
-            response = requests.get(canvas_url, headers=headers)
-            if response.status_code == 200:
+                canvas_url = urljoin(data_server, data_srcset)
 
-                image = Image.open(io.BytesIO(response.content))
+                response = requests.head(canvas_url, headers=headers)
+                if response.status_code != 200:
+                    print(f"Resource not found: {canvas_url}")
+                    continue
 
-                if image.format.lower() == "webp":
-                    image = image.convert("RGB")
-                    img_name = f"canvas_{i}.jpg"
+                response = requests.get(canvas_url, headers=headers)
+                if response.status_code == 200:
+
+                    image = Image.open(io.BytesIO(response.content))
+
+                    if image.format.lower() == "webp":
+                        image = image.convert("RGB")
+                        img_name = f"canvas_{i}.jpg"
+                    else:
+                        img_name = f"canvas_{i}.{image.format.lower()}"
+
+                    image.save(download_path + img_name)
+                    print(f"Downloaded <canvas> {i}: {canvas_url} (saved as {img_name})")
+                    download_count += 1
                 else:
-                    img_name = f"canvas_{i}.{image.format.lower()}"
-
-                image.save(f"downloads/{img_name}")
-                print(f"Downloaded <canvas> {i}: {canvas_url} (saved as {img_name})")
-                download_count += 1
-            else:
-                print(f"Failed to download <canvas> {i}: HTTP {response.status_code}")
-        except Exception as e:
-            print(f"Failed to process <canvas> {i}: {e}")
+                    print(f"Failed to download <canvas> {i}: HTTP {response.status_code}")
+            except Exception as e:
+                print(f"Failed to process <canvas> {i}: {e}")
+    except Exception as e:
+        print(f"Failed to process <canvas>: {e}")
 
     print(f"Total images downloaded: {download_count}\n")
