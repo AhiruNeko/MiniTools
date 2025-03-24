@@ -15,20 +15,19 @@
 
 <div class="node">
   <a name="main.py"></a>
-  <a target="code" href="///D:/OKC/projects/codes/PythonProjects/Crawler/main.py" type="text/plain"><tt>main.py</tt></a>
+  <a target="code" href="///D:/OKC/projects/codes/PythonProjects/ImgSpider/main.py" type="text/plain"><tt>main.py</tt></a>
 <span class="moduletype">Script</span>  <div class="import">
 imports:
-    <a href="#PIL">PIL</a>
- &#8226;   <a href="#PIL.Image">PIL.Image</a>
- &#8226;   <a href="#_collections_abc">_collections_abc</a>
+    <a href="#_collections_abc">_collections_abc</a>
  &#8226;   <a href="#_weakrefset">_weakrefset</a>
  &#8226;   <a href="#abc">abc</a>
- &#8226;   <a href="#base64">base64</a>
- &#8226;   <a href="#bs4">bs4</a>
+ &#8226;   <a href="#argparse">argparse</a>
  &#8226;   <a href="#codecs">codecs</a>
  &#8226;   <a href="#collections">collections</a>
  &#8226;   <a href="#collections.abc">collections.abc</a>
+ &#8226;   <a href="#convertion">convertion</a>
  &#8226;   <a href="#copyreg">copyreg</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#encodings">encodings</a>
  &#8226;   <a href="#encodings.aliases">encodings.aliases</a>
  &#8226;   <a href="#encodings.ascii">encodings.ascii</a>
@@ -176,17 +175,14 @@ imports:
  &#8226;   <a href="#re._constants">re._constants</a>
  &#8226;   <a href="#re._parser">re._parser</a>
  &#8226;   <a href="#reprlib">reprlib</a>
- &#8226;   <a href="#requests">requests</a>
- &#8226;   <a href="#selenium">selenium</a>
- &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
  &#8226;   <a href="#sre_compile">sre_compile</a>
  &#8226;   <a href="#sre_constants">sre_constants</a>
  &#8226;   <a href="#sre_parse">sre_parse</a>
  &#8226;   <a href="#stat">stat</a>
- &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#subprocess">subprocess</a>
+ &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#traceback">traceback</a>
  &#8226;   <a href="#types">types</a>
- &#8226;   <a href="#urllib.parse">urllib.parse</a>
  &#8226;   <a href="#warnings">warnings</a>
  &#8226;   <a href="#weakref">weakref</a>
 
@@ -767,7 +763,7 @@ imported by:
  &#8226;   <a href="#PIL._version">PIL._version</a>
  &#8226;   <a href="#PIL._webp">PIL._webp</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
- &#8226;   <a href="#main.py">main.py</a>
+ &#8226;   <a href="#download">download</a>
 
   </div>
 
@@ -1387,7 +1383,7 @@ imported by:
  &#8226;   <a href="#PIL.XbmImagePlugin">PIL.XbmImagePlugin</a>
  &#8226;   <a href="#PIL.XpmImagePlugin">PIL.XpmImagePlugin</a>
  &#8226;   <a href="#PIL.features">PIL.features</a>
- &#8226;   <a href="#main.py">main.py</a>
+ &#8226;   <a href="#download">download</a>
 
   </div>
 
@@ -3974,6 +3970,7 @@ imported by:
  &#8226;   <a href="#gzip">gzip</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#inspect">inspect</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#py_compile">py_compile</a>
  &#8226;   <a href="#tarfile">tarfile</a>
  &#8226;   <a href="#tokenize">tokenize</a>
@@ -5003,7 +5000,6 @@ imported by:
  &#8226;   <a href="#encodings.base64_codec">encodings.base64_codec</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#logging.handlers">logging.handlers</a>
- &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#pycparser.ply.yacc">pycparser.ply.yacc</a>
  &#8226;   <a href="#requests.auth">requests.auth</a>
  &#8226;   <a href="#secrets">secrets</a>
@@ -5148,7 +5144,7 @@ imported by:
  &#8226;   <a href="#bs4.dammit">bs4.dammit</a>
  &#8226;   <a href="#bs4.element">bs4.element</a>
  &#8226;   <a href="#bs4.formatter">bs4.formatter</a>
- &#8226;   <a href="#main.py">main.py</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#soupsieve">soupsieve</a>
  &#8226;   <a href="#soupsieve.css_match">soupsieve.css_match</a>
 
@@ -7032,6 +7028,22 @@ imported by:
 </div>
 
 <div class="node">
+  <a name="convertion"></a>
+  <a target="code" href="///D:/OKC/projects/codes/PythonProjects/ImgSpider/convertion.py" type="text/plain"><tt>convertion</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#os">os</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#main.py">main.py</a>
+
+  </div>
+
+</div>
+
+<div class="node">
   <a name="copy"></a>
   <a target="code" href="///C:/Users/19426/AppData/Local/Programs/Python/Python311/Lib/copy.py" type="text/plain"><tt>copy</tt></a>
 <span class="moduletype">SourceModule</span>  <div class="import">
@@ -8801,6 +8813,33 @@ imports:
   <div class="import">
 imported by:
     <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
+
+  </div>
+
+</div>
+
+<div class="node">
+  <a name="download"></a>
+  <a target="code" href="///D:/OKC/projects/codes/PythonProjects/ImgSpider/download.py" type="text/plain"><tt>download</tt></a>
+<span class="moduletype">SourceModule</span>  <div class="import">
+imports:
+    <a href="#PIL">PIL</a>
+ &#8226;   <a href="#PIL.Image">PIL.Image</a>
+ &#8226;   <a href="#bs4">bs4</a>
+ &#8226;   <a href="#io">io</a>
+ &#8226;   <a href="#os">os</a>
+ &#8226;   <a href="#re">re</a>
+ &#8226;   <a href="#requests">requests</a>
+ &#8226;   <a href="#selenium">selenium</a>
+ &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
+ &#8226;   <a href="#selenium.webdriver.chrome.options">selenium.webdriver.chrome.options</a>
+ &#8226;   <a href="#time">time</a>
+ &#8226;   <a href="#urllib.parse">urllib.parse</a>
+
+  </div>
+  <div class="import">
+imported by:
+    <a href="#main.py">main.py</a>
 
   </div>
 
@@ -12835,7 +12874,6 @@ imports:
  &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib._bootstrap">importlib._bootstrap</a>
  &#8226;   <a href="#importlib._bootstrap_external">importlib._bootstrap_external</a>
- &#8226;   <a href="#importlib.machinery">importlib.machinery</a>
  &#8226;   <a href="#sys">sys</a>
  &#8226;   <a href="#warnings">warnings</a>
 
@@ -12997,7 +13035,6 @@ imported by:
  &#8226;   <a href="#cffi.verifier">cffi.verifier</a>
  &#8226;   <a href="#ctypes.util">ctypes.util</a>
  &#8226;   <a href="#imp">imp</a>
- &#8226;   <a href="#importlib">importlib</a>
  &#8226;   <a href="#importlib.abc">importlib.abc</a>
  &#8226;   <a href="#inspect">inspect</a>
  &#8226;   <a href="#numpy.compat.py3k">numpy.compat.py3k</a>
@@ -13530,6 +13567,7 @@ imported by:
  &#8226;   <a href="#dis">dis</a>
  &#8226;   <a href="#distutils.text_file">distutils.text_file</a>
  &#8226;   <a href="#doctest">doctest</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#email.feedparser">email.feedparser</a>
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.iterators">email.iterators</a>
@@ -20897,6 +20935,7 @@ imported by:
  &#8226;   <a href="#concurrent.futures.thread">concurrent.futures.thread</a>
  &#8226;   <a href="#configparser">configparser</a>
  &#8226;   <a href="#contextlib">contextlib</a>
+ &#8226;   <a href="#convertion">convertion</a>
  &#8226;   <a href="#ctypes">ctypes</a>
  &#8226;   <a href="#ctypes._aix">ctypes._aix</a>
  &#8226;   <a href="#ctypes.macholib.dyld">ctypes.macholib.dyld</a>
@@ -20924,6 +20963,7 @@ imported by:
  &#8226;   <a href="#distutils.unixccompiler">distutils.unixccompiler</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#doctest">doctest</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#fnmatch">fnmatch</a>
  &#8226;   <a href="#genericpath">genericpath</a>
@@ -25136,6 +25176,7 @@ imported by:
  &#8226;   <a href="#distutils.version">distutils.version</a>
  &#8226;   <a href="#distutils.versionpredicate">distutils.versionpredicate</a>
  &#8226;   <a href="#doctest">doctest</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#email._encoded_words">email._encoded_words</a>
  &#8226;   <a href="#email._header_value_parser">email._header_value_parser</a>
  &#8226;   <a href="#email.feedparser">email.feedparser</a>
@@ -25470,7 +25511,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#main.py">main.py</a>
+    <a href="#download">download</a>
  &#8226;   <a href="#requests">requests</a>
  &#8226;   <a href="#requests.__version__">requests.__version__</a>
  &#8226;   <a href="#requests._internal_utils">requests._internal_utils</a>
@@ -26021,13 +26062,8 @@ imported by:
   <a name="selenium"></a>
   <a target="code" href="///C:/Users/19426/AppData/Local/Programs/Python/Python311/Lib/site-packages/selenium/__init__.py" type="text/plain"><tt>selenium</tt></a>
 <span class="moduletype">Package</span>  <div class="import">
-imports:
-    <a href="#selenium.webdriver">selenium.webdriver</a>
-
-  </div>
-  <div class="import">
 imported by:
-    <a href="#main.py">main.py</a>
+    <a href="#download">download</a>
  &#8226;   <a href="#selenium.common">selenium.common</a>
  &#8226;   <a href="#selenium.types">selenium.types</a>
  &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
@@ -26147,8 +26183,7 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#main.py">main.py</a>
- &#8226;   <a href="#selenium">selenium</a>
+    <a href="#download">download</a>
  &#8226;   <a href="#selenium.webdriver.chrome">selenium.webdriver.chrome</a>
  &#8226;   <a href="#selenium.webdriver.chrome.remote_connection">selenium.webdriver.chrome.remote_connection</a>
  &#8226;   <a href="#selenium.webdriver.chromium">selenium.webdriver.chromium</a>
@@ -26199,7 +26234,8 @@ imports:
   </div>
   <div class="import">
 imported by:
-    <a href="#selenium.webdriver">selenium.webdriver</a>
+    <a href="#download">download</a>
+ &#8226;   <a href="#selenium.webdriver">selenium.webdriver</a>
  &#8226;   <a href="#selenium.webdriver.chrome.webdriver">selenium.webdriver.chrome.webdriver</a>
 
   </div>
@@ -33068,6 +33104,7 @@ imported by:
  &#8226;   <a href="#distutils.spawn">distutils.spawn</a>
  &#8226;   <a href="#distutils.util">distutils.util</a>
  &#8226;   <a href="#http.server">http.server</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#multiprocessing.util">multiprocessing.util</a>
  &#8226;   <a href="#numpy.testing._private.extbuild">numpy.testing._private.extbuild</a>
  &#8226;   <a href="#numpy.testing._private.utils">numpy.testing._private.utils</a>
@@ -33226,6 +33263,7 @@ imported by:
  &#8226;   <a href="#linecache">linecache</a>
  &#8226;   <a href="#locale">locale</a>
  &#8226;   <a href="#logging">logging</a>
+ &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#markupsafe">markupsafe</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#multiprocessing">multiprocessing</a>
@@ -33744,6 +33782,7 @@ imported by:
  &#8226;   <a href="#asyncio.windows_events">asyncio.windows_events</a>
  &#8226;   <a href="#concurrent.futures._base">concurrent.futures._base</a>
  &#8226;   <a href="#datetime">datetime</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#email._parseaddr">email._parseaddr</a>
  &#8226;   <a href="#email.generator">email.generator</a>
  &#8226;   <a href="#email.utils">email.utils</a>
@@ -33754,7 +33793,6 @@ imported by:
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#logging">logging</a>
  &#8226;   <a href="#logging.handlers">logging.handlers</a>
- &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#multiprocessing.connection">multiprocessing.connection</a>
  &#8226;   <a href="#multiprocessing.managers">multiprocessing.managers</a>
  &#8226;   <a href="#multiprocessing.pool">multiprocessing.pool</a>
@@ -34705,13 +34743,13 @@ imports:
   <div class="import">
 imported by:
     <a href="#cgi">cgi</a>
+ &#8226;   <a href="#download">download</a>
  &#8226;   <a href="#email.utils">email.utils</a>
  &#8226;   <a href="#http.client">http.client</a>
  &#8226;   <a href="#http.cookiejar">http.cookiejar</a>
  &#8226;   <a href="#http.server">http.server</a>
  &#8226;   <a href="#jinja2.utils">jinja2.utils</a>
  &#8226;   <a href="#logging.handlers">logging.handlers</a>
- &#8226;   <a href="#main.py">main.py</a>
  &#8226;   <a href="#mimetypes">mimetypes</a>
  &#8226;   <a href="#nturl2path">nturl2path</a>
  &#8226;   <a href="#numpy.lib._datasource">numpy.lib._datasource</a>
