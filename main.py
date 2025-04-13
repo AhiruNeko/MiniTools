@@ -25,7 +25,7 @@ def main():
                 os.makedirs(folder_path)
             subprocess.Popen(['explorer', folder_path])
         elif args.command == "toJPG":
-            if len(args.param) == 2:
+            if len(args.param) == 1:
                 to_jpg("./", args.param[0], delete=False)
             else:
                 to_jpg("./", args.param[0], delete=(args.param[1] == "del"))
