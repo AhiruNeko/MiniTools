@@ -1,4 +1,6 @@
 import os
+import re
+
 from PIL import Image
 
 
@@ -56,8 +58,18 @@ def to_jpg(path, filename, **kwargs):
             os.remove(os.path.join(path, filename))
 
 
+def is_format(name, name_format, var) -> bool:
+    filename, ext = os.path.splitext(name)
+    filename_format, ext_format = os.path.splitext(name_format)
+    if ext != ext_format:
+        return False
+    regex = re.escape(filename_format).replace(re.escape(var), r'([a-zA-Z0-9]+)')
+    return bool(re.fullmatch(regex, filename))
+
+
 def rename(path: str, name_format: str, var: str, begin: str, end: str):
     total = 0
+    done = False
     name_f, ext_f = os.path.splitext(name_format)
 
     try:
@@ -77,10 +89,22 @@ def rename(path: str, name_format: str, var: str, begin: str, end: str):
 
         if os.path.isfile(old_path):
             name, ext = os.path.splitext(filename)
+            if is_format(filename, name_format, var):
+                continue
 
             if ext == ext_f:
-                new_name = name_f.replace(var, chr(iter_var) if use_ascii else str(iter_var)) + ext_f
-                new_path = os.path.join(path, new_name)
+                while True:
+                    new_name = name_f.replace(var, chr(iter_var) if use_ascii else str(iter_var)) + ext_f
+                    new_path = os.path.join(path, new_name)
+                    if not os.path.exists(new_path):
+                        break
+                    iter_var += 1
+                    if end != "inf":
+                        if iter_var > end:
+                            done = True
+                            break
+                if done:
+                    break
 
                 try:
                     os.rename(old_path, new_path)
@@ -88,9 +112,9 @@ def rename(path: str, name_format: str, var: str, begin: str, end: str):
                 except Exception as e:
                     print(f"Fail {filename}: {e}")
                     continue
-
                 iter_var += 1
                 total += 1
+
                 if end != "inf":
                     if iter_var > end:
                         break
