@@ -1,7 +1,7 @@
 # ImgSpider
 自制小工具
 
-下载：https://github.com/Dylan-wg/ImgSpider/blob/main/dist/spd.exe
+下载：https://github.com/AhiruNeko/ImgSpider/blob/main/dist/spd.exe
 
 ### 安装
 将spd.exe所在文件夹的路径加入系统环境变量。
