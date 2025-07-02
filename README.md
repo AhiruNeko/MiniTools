@@ -1,8 +1,6 @@
 # MiniTools
 自制小工具
 
-下载：https://github.com/AhiruNeko/MiniTools/blob/main/dist/mt.exe
-
 ### 安装
 将mt.exe所在文件夹的路径加入系统环境变量。
 
